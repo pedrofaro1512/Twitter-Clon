@@ -9,7 +9,8 @@ import { TWEETS_STORAGE } from "../../Utils/constants";
 //Importación de estilos
 import "./SendTweet.scss";
 
-const SendTweet = () => {
+const SendTweet = (props) => {
+  const { setToastProps, allTweets } = props;
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const openModal = () => {
@@ -24,13 +25,21 @@ const SendTweet = () => {
     const { name, tweet } = formValue;
     let allTweetsArray = [];
 
+    if (allTweets) allTweetsArray = allTweets;
+
     if (!name || !tweet) {
-      console.log("WARNING: Todos los espacios son requeridos");
+      setToastProps({
+        open: true,
+        text: "WARNING: Todos los espacios son requeridos",
+      });
     } else {
       formValue.time = moment();
       allTweetsArray.push(formValue);
       localStorage.setItem(TWEETS_STORAGE, JSON.stringify(allTweetsArray));
-      console.log("Tweet enviado correctamente");
+      setToastProps({
+        open: true,
+        text: "Tweet enviado correctamente",
+      });
       closeModal();
     }
     allTweetsArray = [];
