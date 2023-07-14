@@ -1,7 +1,9 @@
 import React from "react";
+import { Container, Snackbar } from "@mui/material";
+
+//Importación de componentes
 import Header from "./components/Header";
 import SendTweet from "./components/SendTweet";
-import { Container, Snackbar } from "@mui/material";
 
 function App() {
   return (
