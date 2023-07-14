@@ -1,10 +1,12 @@
 import React from "react";
+import Header from "./components/Header";
+import { Container, Snackbar } from "@mui/material";
 
 function App() {
   return (
-    <div>
-      <h1>Estamos en App</h1>
-    </div>
+    <Container className="tweets-simulator" maxWidth={false}>
+      <Header />
+    </Container>
   );
 }
 
