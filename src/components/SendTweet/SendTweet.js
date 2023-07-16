@@ -30,7 +30,7 @@ const SendTweet = (props) => {
     if (!name || !tweet) {
       setToastProps({
         open: true,
-        text: "WARNING: Todos los espacios son requeridos",
+        text: "Todos los espacios son requeridos",
       });
     } else {
       formValue.time = moment();
@@ -39,6 +39,7 @@ const SendTweet = (props) => {
       setToastProps({
         open: true,
         text: "Tweet enviado correctamente",
+        type: "success",
       });
       closeModal();
     }

@@ -47,7 +47,7 @@ const FormSendTweet = (props) => {
             />
           </FormGroup>
           <FormGroup>
-            <button type="submit">Enviar Tweet</button>
+            <Button type="submit">Enviar Tweet</Button>
           </FormGroup>
         </FormControl>
       </form>
