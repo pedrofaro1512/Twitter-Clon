@@ -13,6 +13,7 @@ const ListTweets = (props) => {
       <div className="list-tweets-empty">
         <h1>No hay Tweets...</h1>
         <br />
+        <br />
         <h2>Si quieres crear un tweet dale clic al botón de abajo...</h2>
       </div>
     );
