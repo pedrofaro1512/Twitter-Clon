@@ -11,7 +11,9 @@ const ListTweets = (props) => {
   if (!allTweets || allTweets.length === 0) {
     return (
       <div className="list-tweets-empty">
-        <h2>No hay Tweets...</h2>
+        <h1>No hay Tweets...</h1>
+        <br />
+        <h2>Si quieres crear un tweet dale clic al botón de abajo...</h2>
       </div>
     );
   }
