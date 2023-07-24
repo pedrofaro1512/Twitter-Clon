@@ -19,5 +19,19 @@
         &-textarea {
             width: 100%;
         }
+        .MuiInputBase-input {
+            border-color: black;
+            color: black;
+        }
+    }
+
+    &.dark {
+        background-color: black;
+        color: white;
+
+        .MuiInputBase-input {
+            border-color: white;
+            color: white;
+        }
     }
 }

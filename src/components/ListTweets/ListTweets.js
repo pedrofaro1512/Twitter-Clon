@@ -6,11 +6,11 @@ import { Grid } from "@mui/material";
 import "./ListTweets.scss";
 
 const ListTweets = (props) => {
-  const { allTweets, deleteTweet } = props;
+  const { allTweets, deleteTweet, isDarkMode } = props;
 
   if (!allTweets || allTweets.length === 0) {
     return (
-      <div className="list-tweets-empty">
+      <div className={`list-tweets-empty ${isDarkMode ? "dark" : ""}`}>
         <h1>No hay Tweets...</h1>
         <br />
         <br />
@@ -20,7 +20,11 @@ const ListTweets = (props) => {
   }
 
   return (
-    <Grid container spacing={3} className="list-tweets">
+    <Grid
+      container
+      spacing={3}
+      className={`list-tweets ${isDarkMode ? "dark" : ""}`}
+    >
       {allTweets.map((tweet, index) => (
         <Grid key={index} item xs={4}>
           <Tweet tweet={tweet} index={index} deleteTweet={deleteTweet} />
