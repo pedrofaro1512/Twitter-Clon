@@ -10,7 +10,7 @@ import { TWEETS_STORAGE } from "../../Utils/constants";
 import "./SendTweet.scss";
 
 const SendTweet = (props) => {
-  const { setToastProps, allTweets } = props;
+  const { setToastProps, allTweets, isDarkMode } = props;
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const openModal = () => {
@@ -57,7 +57,7 @@ const SendTweet = (props) => {
         <AddIcon />
       </Fab>
       <ModalContainer isOpenModal={isOpenModal} closeModal={closeModal}>
-        <FormSendTweet sendTweet={sendTweet} />
+        <FormSendTweet sendTweet={sendTweet} isDarkMode={isDarkMode} />
       </ModalContainer>
     </div>
   );

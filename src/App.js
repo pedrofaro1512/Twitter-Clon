@@ -14,6 +14,8 @@ const StyledSnackbar = styled(Snackbar)(({ theme, type }) => ({
 }));
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const [toastProps, setToastProps] = useState({
     open: false,
     text: null,
@@ -39,6 +41,10 @@ function App() {
     }
   }, [toastProps]);
 
+  useEffect(() => {
+    document.body.classList.toggle("dark", isDarkMode);
+  }, [isDarkMode]);
+
   const deleteTweet = (index) => {
     allTweets.splice(index, 1);
     setAllTweets([...allTweets]);
@@ -51,11 +57,26 @@ function App() {
     setReloadTweets(true);
   };
 
+  const handleDarkModeToggle = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
   return (
-    <Container className="tweets-simulator" maxWidth={false}>
-      <Header />
-      <SendTweet setToastProps={setToastProps} allTweets={allTweets} />
-      <ListTweets allTweets={allTweets} deleteTweet={deleteTweet} />
+    <Container
+      className={`tweets-simulator ${isDarkMode ? "dark" : ""}`}
+      maxWidth={false}
+    >
+      <Header isDarkMode={isDarkMode} onDarkModeToggle={handleDarkModeToggle} />
+      <SendTweet
+        setToastProps={setToastProps}
+        allTweets={allTweets}
+        isDarkMode={isDarkMode}
+      />
+      <ListTweets
+        allTweets={allTweets}
+        deleteTweet={deleteTweet}
+        isDarkMode={isDarkMode}
+      />
       <StyledSnackbar
         anchorOrigin={{
           vertical: "top",
