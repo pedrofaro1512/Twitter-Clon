@@ -4,7 +4,7 @@ import { FormControl, FormGroup, TextField, Button } from "@mui/material";
 import "./FormSendTweet.scss";
 
 const FormSendTweet = (props) => {
-  const { sendTweet } = props;
+  const { sendTweet, isDarkMode } = props;
 
   const [formValue, setFormValue] = useState({
     name: "",
@@ -19,7 +19,7 @@ const FormSendTweet = (props) => {
   };
 
   return (
-    <div className="form-send-tweet">
+    <div className={`form-send-tweet ${isDarkMode ? "dark" : ""}`}>
       <h2 className="form-send-tweet__title">Enviar Tweet</h2>
       <form
         className="form-send-tweet__form"
